@@ -33,6 +33,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public List<Movie> movieList = new ArrayList<>();
+    public final static String EXTRA_MESSAGE = "com.ophion.cinesapp.MESSAGE";
+
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
 
@@ -58,12 +60,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Movie movie = movieList.get(position);
-                String posicion = "Posicion";
-                // Launchear los horaios para dicha movie
-                Intent intent = new Intent(this, Main2HsActivity.class);
-                intent.putExtra(posicion, position); // Le deberia pasar la pelicula mas que nada.
+                String titulo = movie.getTitle();
+                // String olmos = movie.getSchedule();
+                // Launchear los horarios para dicha movie
+                Intent intent = new Intent(MainActivity.this, Main2HsActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, titulo); // Le deberia pasar la pelicula mas que nada.
+                // intent.putExtra(olmos, olmos);
+                Toast.makeText(getApplicationContext(), "Seleccionaste " + movie.getTitle() + "!", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), movie.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
             }
 
             @Override

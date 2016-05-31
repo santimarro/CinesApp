@@ -1,5 +1,6 @@
 package com.ophion.cinesapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,7 +18,7 @@ public class MyFragment extends Fragment{
 
     public MyFragment() {
     }
-    Button back;
+    //Button back;
     TextView castellano;
     TextView subtitulada;
     TextView castellano3d;
@@ -27,10 +28,10 @@ public class MyFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.my_fragment, container, false);
-        subtitulada = (TextView) rootView.findViewById(R.id.subtitulada);
-        castellano3d = (TextView) rootView.findViewById(R.id.casteallano3d);
-        subtitulada3d = (TextView) rootView.findViewById(R.id.subtitulada3d);
-        castellano = (TextView) rootView.findViewById(R.id.castellano);
+        subtitulada = (TextView) rootView.findViewById(R.id.subtitulada1);
+        castellano3d = (TextView) rootView.findViewById(R.id.casteallano3d1);
+        subtitulada3d = (TextView) rootView.findViewById(R.id.subtitulada3d1);
+        castellano = (TextView) rootView.findViewById(R.id.castellano1);
         movie_title = (TextView) rootView.findViewById(R.id.movie_title);
         //back = (Button) rootView.findViewById(R.id.Back);
 
@@ -47,7 +48,7 @@ public class MyFragment extends Fragment{
 
 
 
-    public static MyFragment newInstance() {
+    public static MyFragment newInstance(String title) {
         MyFragment fragment = new MyFragment();
         return fragment;
     }

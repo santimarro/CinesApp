@@ -1,5 +1,6 @@
 package com.ophion.cinesapp;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,10 @@ public class Main2HsActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
+
+    public Intent intent = getIntent();
+    String title = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -101,9 +106,7 @@ public class Main2HsActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            return  MyFragment.newInstance(title);
         }
 
         @Override
@@ -116,13 +119,13 @@ public class Main2HsActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Hoyts Patio Olmos";
+                    return "Patio Olmos";
                 case 1:
-                    return "Hoyts Nuevo Centro";
+                    return "Nuevo Centro";
                 case 2:
                     return "Showcase";
                 case 3:
-                    return "Cines Gran Rex";
+                    return "Gran Rex";
                 case 4:
                     return "Cinerama";
             }
