@@ -1,6 +1,7 @@
 package com.ophion.cinesapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Movie> movieList = new ArrayList<>();
+    public List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
 
@@ -57,7 +58,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view, int position) {
                 Movie movie = movieList.get(position);
+                String posicion = "Posicion";
                 // Launchear los horaios para dicha movie
+                Intent intent = new Intent(this, Main2HsActivity.class);
+                intent.putExtra(posicion, position); // Le deberia pasar la pelicula mas que nada.
+                startActivity(intent);
                 Toast.makeText(getApplicationContext(), movie.getTitle() + " is selected!", Toast.LENGTH_SHORT).show();
             }
 
