@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#01d5ec">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,7 +14,8 @@
         android:layout_marginLeft="0dp"
         android:layout_above="@+id/subtitulada1"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="420dp"
@@ -23,7 +25,8 @@
         android:id="@+id/subtitulada1"
         android:layout_marginLeft="0dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -35,7 +38,8 @@
         android:layout_below="@+id/subtitulada1"
         android:layout_alignParentStart="true"
         android:layout_marginTop="23dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -46,7 +50,8 @@
         android:layout_below="@+id/casteallano3d1"
         android:layout_alignParentStart="true"
         android:layout_marginTop="34dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,15 +61,6 @@
         android:id="@+id/movie_title"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/Back"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:textSize="40dp" />
 
 </RelativeLayout>

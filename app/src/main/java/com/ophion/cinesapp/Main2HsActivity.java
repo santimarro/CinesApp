@@ -2,8 +2,6 @@ package com.ophion.cinesapp;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -12,13 +10,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
-import android.widget.TextView;
+/**
+ * Created by smarro on 30/05/16.
+ */
 
 public class Main2HsActivity extends AppCompatActivity {
 
@@ -31,8 +28,7 @@ public class Main2HsActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
 
-    public Intent intent = getIntent();
-    String title = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+    Movie movie;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -59,15 +55,9 @@ public class Main2HsActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
+        // Recupero el objeto movie
+        Intent i = getIntent();
+        movie = (Movie)i.getSerializableExtra("Movie");
     }
 
 
@@ -106,12 +96,12 @@ public class Main2HsActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return  MyFragment.newInstance(title);
+            return  MyFragment.newInstance(movie, position);
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
+            // Show 5 total pages.
             return 5;
         }
 

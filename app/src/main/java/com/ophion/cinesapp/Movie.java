@@ -3,18 +3,24 @@ package com.ophion.cinesapp;
 /**
  * Created by smarro on 5/23/16.
  */
+import java.io.Serializable;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
-public class Movie {
+public class Movie implements Serializable{
 
-    private String title, genre, year;
+    private String title, genre;
+    private String[] cines = new String[5];
+    // Array con los cines ubicados: Olmos, NuevoCentro, Showcase, Gran Rex, Cinerama
 
     public Movie() {
     }
 
-    public Movie(String title, String genre, String year) {
+    public Movie(String title, String genre, String [] cines) {
         this.title = title;
         this.genre = genre;
-        this.year = year;
+        this.cines = cines;
+
     }
 
     public String getTitle() {
@@ -25,12 +31,14 @@ public class Movie {
         this.title = name;
     }
 
-    public String getYear() {
-        return year;
+    public void setSchedule(String [] schedules) {
+        for (int i = 0; i < 5; i++) {
+            this.cines[i] = schedules[i];
+        }
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public String getSchedule(int cine) {
+        return this.cines[cine];
     }
 
     public String getGenre() {
